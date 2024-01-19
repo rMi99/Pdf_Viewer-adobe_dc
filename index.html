@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="adobe-dc-view"></div>
+    <a id="pdf_link" href="pdf.pdf"></a>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("adobe_dc_view_sdk.ready", function() {
+            var adobeDCView = new AdobeDC.View({
+                clientId: "67688f4de7144039962695af94c9aa03",
+                divId: "adobe-dc-view"
+            });
+            adobeDCView.previewFile({
+                content: {
+                    location: {
+                        url: "pdf.pdf"
+                    }
+                },
+                metaData: {
+                    fileName: "Ground Flow Hero"
+                }
+            }, {
+                showAnnotationTools: false,
+                showLeftHandPanel: false,
+                dockPageControls: false,
+                showDownloadPDF: false
+            });
+        });
+    </script>
+</body>
+
+</html>
